@@ -1,0 +1,79 @@
+﻿
+
+@{ 
+    ViewData["title"] = "Home";
+    var books = ViewData["book"] as BookModel;
+}
+
+ <section class="jumbotron text-center" >
+     <div class="container">
+         <h1>BookStore App @ViewData["property1"]</h1>
+         <hr />
+         <h3>@books.Id @books.Author</h3>
+         <p class="lead text-muted">
+             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+         </p>
+         <p>
+             <a href="#" class="btn btn-primary my-2">Search Books</a>
+         </p>
+
+     </div>
+
+ </section>
+<div class="py-5 bg-light">
+    <div class="container">
+        <big>Top books</big>
+    <p big>Top book using attribute</p>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <svg class="bd-placeholder-image card-img-top" width="100%" height="225" xmlns="..." alt="Card image cap"></svg>
+                    <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <div class="d-flex justify-content-between align-items-center" >
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-sm btn-outline-secondary">View details</a>
+                            </div>
+                            <small class="text-muted">Author Details</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <svg class="bd-placeholder-image card-img-top" width="100%" height="225" xmlns="..." alt="Card image cap"></svg>
+                    <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-sm btn-outline-secondary">View details</a>
+                            </div>
+                            <small class="text-muted">Author Details</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <svg class="bd-placeholder-image card-img-top" width="100%" height="225" xmlns="..." alt="Card image cap"></svg>
+                    <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-sm btn-outline-secondary">View details</a>
+                            </div>
+                            <small class="text-muted">Author Details</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{ 
+    <script>
+        $(document).ready(function () {
+            alert("render!");
+        });
+    </script>
+}

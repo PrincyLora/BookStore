@@ -1,0 +1,31 @@
+﻿@model IEnumerable<practise.BookStoreApp.Models.BookModel>
+
+
+
+    <div class="container">
+
+        <h3 class="display-4">List of all books</h3>
+        <div class="row">
+            @foreach (var book in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        @*<svg class="bd-placeholder-image card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" alt="Card image cap"></svg>*@
+                        <img src="@book.CoverImageURL" class="img-thumbnail"/>
+                        <div class="card-body">
+                            <h3 class="card-title">@book.Title</h3> <p>@book.Description</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a asp-controller="book" asp-action="GetBookDetail"  asp-route-id="@book.Id" asp-fragment="similarBooks" class="btn btn-sm btn-outline-secondary">View details</a>
+                                </div>
+                                <small class="text-muted">@book.Author</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+        </div>
+    </div>
+   

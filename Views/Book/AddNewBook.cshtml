@@ -1,0 +1,110 @@
+﻿@using practise.BookStoreApp.Enum
+@model BookModel
+
+@{
+    ViewData["Title"] = "Add new books|";
+}
+    <div class="container">
+        <h3 class="display-3"> Add New Books</h3>
+        <hr />
+        @if (ViewBag.IsSuccess == true)
+        {
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Holy guacamole!</strong> You should check in on some of those fields
+                <a asp-controller="Book" asp-action="GetBookDetail" asp-route-id="@ViewBag.BookId">here</a>.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        }
+        @*below code is for loader*@
+        @*<div class="d-flex justify-content-center"  style="display:none">
+            <div class="spinner-border" role="status" id="myLoader">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>*@
+
+        @*below form tag for jquery.unobstrusive.ajax.*@
+
+        @*<form method="post" data-ajax-loading="#myLoader" data-ajax="true" data-ajax-failure="myFailure" data-ajax-complete="myComplete" data-ajax-success="mySuccess" asp-action="AddNewBook" asp-controller="Book">*@
+    <form method="post" enctype="multipart/form-data" asp-action="AddNewBook" asp-controller="Book">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            @*bellow code using viewbag
+             <label asp-for="MultiLanguange"></label>
+             <select asp-for="MultiLanguange" class="form-control" asp-items="ViewBag.Language" multiple>
+             <option value="">Please select a langauage</option>
+            </select>
+             <span asp-validation-for="MultiLanguange" class="text-danger"></span>*@
+            @*<label asp-for="LanguageId"></label>
+            <select asp-for="LanguageId" class="form-control" asp-items="Html.GetEnumSelectList<LanguageEnum>()">
+                <option value="">Please select a langauage</option>
+            </select>
+            <span asp-validation-for="LanguageId" class="text-danger"></span>*@
+            <label asp-for="LanguageId"></label>
+            <select asp-for="LanguageId" class="form-control" asp-items="ViewBag.Language">
+                <option value="">Please select a langauage</option>
+            </select>
+            <span asp-validation-for="LanguageId" class="text-danger"></span>
+
+        </div>
+        <div class="form-group">
+            <label class="control-label" asp-for="MyField"></label>
+            <input asp-for="MyField" class="form-control" />
+            <span asp-validation-for="MyField" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Title" class="control-label"></label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Author" class="control-label"></label>
+            <input asp-for="Author" class="form-control" />
+            <span asp-validation-for="Author" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description" class="control-label"></label>
+            <textarea type="text" asp-for="Description" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <label asp-for="Pages" class="control-label"></label>
+            <input type="number" asp-for="Pages" class="form-control" />
+            <span asp-validation-for="Pages" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CoverPhoto" class="control-label"></label>
+            <div class="custom-file">
+                <input asp-for="CoverPhoto" class="custom-file-input" id="customFile">
+                <label class="custom-file-label" for="customFile">Choose file</label>
+            </div>
+            <span asp-validation-for="CoverPhoto" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="GalleryFiles" class="control-label"></label>
+            <div class="custom-file">
+                <input asp-for="GalleryFiles" class="custom-file-input" id="customFile">
+                <label class="custom-file-label" for="customFile">Choose file</label>
+            </div>
+            <span asp-validation-for="GalleryFiles" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Add Book" class="btn btn-primary" />
+        </div>
+    </form>
+    </div>
+
+@section scripts { 
+<script>
+    function myComplete() {
+        alert("I am from complete")
+    }
+    function mySuccess() {
+        alert("I am from success")
+    }
+    function myFailure() {
+        alert("I am from failure")
+    }
+</script>
+}
